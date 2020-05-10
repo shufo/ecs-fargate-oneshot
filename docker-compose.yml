@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      target: build
+    volumes:
+      - "./:/go/app"
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+    command: realize start
+    container_name: ${PROJECT:-go}-app
+    working_dir: "/go/app"
+    tty: true

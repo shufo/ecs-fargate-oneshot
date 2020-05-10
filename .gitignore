@@ -1,0 +1,7 @@
+.history
+/app
+storage
+.idea
+.vscode
+.env
+dist/
