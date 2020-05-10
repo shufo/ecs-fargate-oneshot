@@ -22,11 +22,11 @@ parse_args() {
   #BINDIR is ./bin unless set be ENV
   # over-ridden by flag below
   
-  if [[ ! -z "$GOPATH" ]]; then
+  if [ ! -z "$GOPATH" ]; then
     BINDIR=$GOPATH/bin
   fi
 
-  if [[ -z $BINDIR ]]; then
+  if [ -z $BINDIR ]; then
     BINDIR=${BINDIR:-./bin}
   fi
 
