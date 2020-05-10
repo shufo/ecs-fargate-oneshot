@@ -41,9 +41,9 @@ You must have these IAM permissions to execute tasks
 
 ## Usage
 
-### tasks
+### Executes tasks
 
-Executes task (with showing logs)
+You can launch tasks with `run` sub command
 
 ```bash
 $ ecs-fargate-oneshot -v \
@@ -53,7 +53,17 @@ $ ecs-fargate-oneshot -v \
     --container app \
     --show-cloudwatch-logs \
     echo "foo bar"
+# output =>
+INFO[0001] executing tasks...
+Please wait for tasks to finished 
+INFO[0061] INFO: task finished                          
+INFO[0061] INFO: taskId:  db049581-f47b-4e9e-9d8f-53efa9ee24d0 
+Event messages for stream app/app/db049581-f47b-4e9e-9d8f-53efa9ee24d0 in log group LOG-GROUP-NAME: /fargate/service/app
+   foo bar
+db049581-f47b-4e9e-9d8f-53efa9ee24d0
 ```
+
+
 
 NOTE: If you would like to show logs, you must define log configuration for cloudwatch logs on ecs task definition.
 
@@ -82,7 +92,7 @@ $ ecs-fargate-oneshot \
 
 ### logs
 
-You can showing logs after task execution
+You can showing logs after task execution by `logs` sub command
 
 ```bash
 # run task without logs
@@ -122,7 +132,7 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 | `--progress`, `-p` |     Show progress | `false` | no       |
 |    `--help,`, `-h` |         Show help | `false` | no       |
 
-### run sub command
+### `run` sub command
 
 |                          option |                  description | default | required |
 | ------------------------------: | ---------------------------: | ------: | -------- |
@@ -130,7 +140,7 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 |             `--container`, `-n` |               Container name |    `""` | yes      |
 | `--show-cloudwatch-logs,`, `-l` | Show logs on cloudwatch logs | `false` | no       |
 
-### logs sub command
+### `logs` sub command
 
 |              option |    description | default | required |
 | ------------------: | -------------: | ------: | -------- |
@@ -166,3 +176,4 @@ export AWS_SECRET_ACCESS_KEY=
 ## TODO
 
 - [ ] Add option to execute tasks without waiting task status
+- [ ] Add option for tab width for logs
