@@ -147,7 +147,7 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 |              option |    description | default | required |
 | ------------------: | -------------: | ------: | -------- |
 | `--container`, `-n` | Container name |    `""` | yes      |
-|   `--task-id`, `-t` |  A ECS task id |    `""` | no       |
+|   `--task-id`, `-t` |  An ECS task id |    `""` | no       |
 
 ## Contributing
 
