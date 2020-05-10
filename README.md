@@ -10,9 +10,11 @@ Using go get
 $ go get -u github.com/shufo/ecs-fargate-oneshot
 ```
 
-or download manually
+or download binary by installation script
 
-TBD
+```bash
+$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sh -s
+```
 
 ### resource permissions
 
