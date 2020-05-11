@@ -43,6 +43,10 @@ You must have these IAM permissions to execute tasks
 
 ## Usage
 
+This command takes global option and sub command options
+
+`ecs-fargate-oneshot [options] run|logs [sub command options]`
+
 ### Executes tasks
 
 You can launch tasks with `run` sub command
