@@ -13,7 +13,11 @@ $ go get -u github.com/shufo/ecs-fargate-oneshot
 or download binary by installation script
 
 ```bash
+# this will install $GOPATH/.bin/ecs-fargate-oneshot or ./bin/ecs-fargate-oneshot
 $ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sh -s
+
+# if you would like change installation path to /usr/local/bin
+$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sudo sh -s - -b /usr/local/bin
 ```
 
 ### resource permissions
@@ -61,15 +65,13 @@ $ ecs-fargate-oneshot -v \
     echo "foo bar"
 # output =>
 INFO[0001] executing tasks...
-Please wait for tasks to finished 
-INFO[0061] INFO: task finished                          
-INFO[0061] INFO: taskId:  db049581-f47b-4e9e-9d8f-53efa9ee24d0 
+Please wait for tasks to finished
+INFO[0061] INFO: task finished
+INFO[0061] INFO: taskId:  db049581-f47b-4e9e-9d8f-53efa9ee24d0
 Event messages for stream app/app/db049581-f47b-4e9e-9d8f-53efa9ee24d0 in log group LOG-GROUP-NAME: /fargate/service/app
    foo bar
 db049581-f47b-4e9e-9d8f-53efa9ee24d0
 ```
-
-
 
 NOTE: If you would like to show logs, you must define log configuration for cloudwatch logs on ecs task definition.
 
@@ -151,9 +153,7 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 |              option |    description | default | required |
 | ------------------: | -------------: | ------: | -------- |
 | `--container`, `-n` | Container name |    `""` | yes      |
-|   `--task-id`, `-t` |  An ECS task id |    `""` | no       |
-
-
+|   `--task-id`, `-t` | An ECS task id |    `""` | no       |
 
 ## Troubleshoot
 
