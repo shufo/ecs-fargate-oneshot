@@ -153,17 +153,7 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 | `--container`, `-n` | Container name |    `""` | yes      |
 |   `--task-id`, `-t` |  An ECS task id |    `""` | no       |
 
-## Contributing
 
-1.  Fork it
-2.  Create your feature branch (`git checkout -b my-new-feature`)
-3.  Commit your changes (`git commit -am 'Add some feature'`)
-4.  Push to the branch (`git push origin my-new-feature`)
-5.  Create new Pull Request
-
-## LICENSE
-
-MIT
 
 ## Troubleshoot
 
@@ -183,3 +173,15 @@ export AWS_SECRET_ACCESS_KEY=
 
 - [ ] Add option to execute tasks without waiting task status
 - [ ] Add option for tab width for logs
+
+## Contributing
+
+1.  Fork it
+2.  Create your feature branch (`git checkout -b my-new-feature`)
+3.  Commit your changes (`git commit -am 'Add some feature'`)
+4.  Push to the branch (`git push origin my-new-feature`)
+5.  Create new Pull Request
+
+## LICENSE
+
+MIT
