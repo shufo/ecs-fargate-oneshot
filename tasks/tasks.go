@@ -47,11 +47,11 @@ func RunTask(c *cli.Context) {
 		TaskDefinition: latestDefinition,
 	})
 
-	taskArn := *results.Tasks[0].TaskArn
-
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	taskArn := *results.Tasks[0].TaskArn
 
 	log.Info("executing tasks...\nPlease wait for tasks to finished")
 
