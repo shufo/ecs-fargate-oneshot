@@ -11,6 +11,9 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+// Version provides ecs-fargate version
+var Version = "default"
+
 func main() {
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.WarnLevel)
@@ -22,7 +25,7 @@ func main() {
 
 	app := &cli.App{
 		Name:     "ecs-fargate-oneshot",
-		Version:  "v0.1.2",
+		Version:  Version,
 		Compiled: time.Now(),
 		Usage:    "run oneshot task on ecs (fargate) with passed parameter",
 		Flags: []cli.Flag{
