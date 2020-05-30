@@ -22,6 +22,7 @@ func main() {
 
 	app := &cli.App{
 		Name:     "ecs-fargate-oneshot",
+		Version:  "v0.1.2",
 		Compiled: time.Now(),
 		Usage:    "run oneshot task on ecs (fargate) with passed parameter",
 		Flags: []cli.Flag{
