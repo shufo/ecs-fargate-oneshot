@@ -15,6 +15,11 @@ func main() {
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.WarnLevel)
 
+	cli.VersionFlag = &cli.BoolFlag{
+		Name: "version", Aliases: []string{"V"},
+		Usage: "print only the version",
+	}
+
 	app := &cli.App{
 		Name:     "ecs-fargate-oneshot",
 		Compiled: time.Now(),
