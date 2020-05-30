@@ -1,3 +1,5 @@
+![ci](https://github.com/shufo/ecs-fargate-oneshot/workflows/ci/badge.svg?branch=master)
+
 # ecs-fargate-oneshot
 
 Executes oneshot task on ECS (fargate)
