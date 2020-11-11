@@ -63,5 +63,5 @@ func ExtractTaskId(taskArn string) string {
 		log.Fatal("seems passed parameter is not task ARN")
 	}
 
-	return strings.Split(taskArn, "/")[1]
+	return strings.Split(taskArn, "/")[2]
 }
