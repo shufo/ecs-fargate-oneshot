@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/aws/aws-sdk-go v1.44.28
-	github.com/briandowns/spinner v1.11.1
+	github.com/briandowns/spinner v1.18.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/cli/v2 v2.8.1
 )
