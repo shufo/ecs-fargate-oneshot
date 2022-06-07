@@ -18,6 +18,14 @@ func main() {
 	log.SetOutput(os.Stdout)
 	log.SetLevel(log.WarnLevel)
 
+	err := run(os.Args)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func run(args []string) error {
 	cli.VersionFlag = &cli.BoolFlag{
 		Name: "version", Aliases: []string{"V"},
 		Usage: "print only the version",
@@ -120,9 +128,5 @@ func main() {
 		},
 	}
 
-	err := app.Run(os.Args)
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	return app.Run(args)
 }
