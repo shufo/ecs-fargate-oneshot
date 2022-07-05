@@ -6,11 +6,11 @@ require (
 	github.com/aws/aws-sdk-go v1.44.47
 	github.com/briandowns/spinner v1.18.1
 	github.com/sirupsen/logrus v1.8.1
-	github.com/urfave/cli/v2 v2.8.1
+	github.com/urfave/cli/v2 v2.10.3
 )
 
 require (
-	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
+	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.2 // indirect
