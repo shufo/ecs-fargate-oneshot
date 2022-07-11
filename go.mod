@@ -3,7 +3,7 @@ module github.com/shufo/ecs-fargate-oneshot
 go 1.17
 
 require (
-	github.com/aws/aws-sdk-go v1.44.47
+	github.com/aws/aws-sdk-go v1.44.51
 	github.com/briandowns/spinner v1.18.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/cli/v2 v2.10.3
