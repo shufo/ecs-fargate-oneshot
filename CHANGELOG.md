@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.10](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.9...v0.1.10) (2022-07-28)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.65 ([5697480](https://github.com/shufo/ecs-fargate-oneshot/commit/5697480f0582cd869ac320bca4b24ea87b9c6b2f))
+* **deps:** update module github.com/sirupsen/logrus to v1.9.0 ([792c261](https://github.com/shufo/ecs-fargate-oneshot/commit/792c26102d6cb5042f56aa0aaffca024652a5937))
+
+
+### Miscellaneous
+
+* **deps:** bump github.com/urfave/cli/v2 from 2.11.0 to 2.11.1 ([7aac7ba](https://github.com/shufo/ecs-fargate-oneshot/commit/7aac7ba17279e435fdfe8ff130d1b6f563c2f704))
+
 ## [0.1.9](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.8...v0.1.9) (2022-07-16)
 
 
