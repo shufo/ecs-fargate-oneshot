@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.11](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.10...v0.1.11) (2022-08-07)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.70 ([762664f](https://github.com/shufo/ecs-fargate-oneshot/commit/762664f8ac65367708509d6fc5e5843d989c5c81))
+
+
+### Miscellaneous
+
+* **deps:** bump github.com/aws/aws-sdk-go from 1.44.65 to 1.44.67 ([7f5b12d](https://github.com/shufo/ecs-fargate-oneshot/commit/7f5b12df122a98c9ad4e3301642319539ef82f2e))
+* **deps:** bump github.com/briandowns/spinner from 1.18.1 to 1.19.0 ([588b005](https://github.com/shufo/ecs-fargate-oneshot/commit/588b00565457676494ac856601956c72729f8073))
+
 ## [0.1.10](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.9...v0.1.10) (2022-07-28)
 
 
