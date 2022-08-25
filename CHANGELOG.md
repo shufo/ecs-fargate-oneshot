@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.13](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.12...v0.1.13) (2022-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.85 ([6ec4581](https://github.com/shufo/ecs-fargate-oneshot/commit/6ec45815ac3ede6cad93422a1de1f8bfb3c0b21c))
+
 ## [0.1.12](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.11...v0.1.12) (2022-08-16)
 
 
