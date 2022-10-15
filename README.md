@@ -148,8 +148,8 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 | ------------------------------: | ---------------------------: | ------------------------: | -------- |
 |       `--task-definition`, `-t` |         Task definition name |                      `""` | yes      |
 |             `--container`, `-n` |               Container name |                      `""` | yes      |
-|                    `--cpu, `-C` |                 Assigned CPU | Task definition's default | no       |
-|                 `--memory, `-m` |              Assigned Memory | Task definition's default | no       |
+|                   `--cpu`, `-C` |                 Assigned CPU | Task definition's default | no       |
+|                `--memory`, `-m` |              Assigned Memory | Task definition's default | no       |
 | `--show-cloudwatch-logs,`, `-l` | Show logs on cloudwatch logs |                   `false` | no       |
 
 ### `logs` sub command
