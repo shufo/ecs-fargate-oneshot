@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.2.0](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.14...v0.2.0) (2022-10-15)
+
+
+### Features
+
+* 🎸 add optional parameter `--cpu` and `--memory` ([ee91b87](https://github.com/shufo/ecs-fargate-oneshot/commit/ee91b873773f264526876492d82c60bfa0c418b3))
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.116 ([3fd8352](https://github.com/shufo/ecs-fargate-oneshot/commit/3fd83528782276003d3cd502632d92da0642df11))
+* **deps:** update module github.com/urfave/cli/v2 to v2.19.2 ([a74886d](https://github.com/shufo/ecs-fargate-oneshot/commit/a74886dec99ccdda03229abc46070e9181564c89))
+
+
+### Miscellaneous
+
+* 🤖 add ignore pattern ([1841ede](https://github.com/shufo/ecs-fargate-oneshot/commit/1841edea008ab62460a6dae796bcd00f1ceb99ad))
+
 ## [0.1.14](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.13...v0.1.14) (2022-09-12)
 
 
