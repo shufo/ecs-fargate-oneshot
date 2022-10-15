@@ -5,3 +5,4 @@ storage
 .vscode
 .env
 dist/
+/ecs-fargate-oneshot
