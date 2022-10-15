@@ -33,7 +33,7 @@ func TestCLI(t *testing.T) {
 			Output: "--memory",
 		},
 	} {
-		t.Run("CLI test", func(t *testing.T) {
+		t.Run(fmt.Sprintf("CLI test %s", test.Output), func(t *testing.T) {
 			os.Args = test.Args
 			out = bytes.NewBuffer(nil)
 			old := os.Stdout
