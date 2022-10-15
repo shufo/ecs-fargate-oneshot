@@ -24,6 +24,14 @@ func TestCLI(t *testing.T) {
 			Args:   []string{"./ecs-fargate-oneshot", "--cluster", "app", "--service", "app", "run"},
 			Output: "--task-definition",
 		},
+		{
+			Args:   []string{"./ecs-fargate-oneshot", "--cluster", "app", "--service", "app", "run"},
+			Output: "--cpu",
+		},
+		{
+			Args:   []string{"./ecs-fargate-oneshot", "--cluster", "app", "--service", "app", "run"},
+			Output: "--memory",
+		},
 	} {
 		t.Run("CLI test", func(t *testing.T) {
 			os.Args = test.Args
