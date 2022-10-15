@@ -73,6 +73,16 @@ func run(args []string) error {
 						Aliases:  []string{"t"},
 						Required: true,
 					},
+					&cli.Int64Flag{
+						Name:     "cpu",
+						Aliases:  []string{"C"},
+						Required: false,
+					},
+					&cli.Int64Flag{
+						Name:     "memory",
+						Aliases:  []string{"m"},
+						Required: false,
+					},
 					&cli.StringFlag{
 						Name:     "container",
 						Aliases:  []string{"n"},

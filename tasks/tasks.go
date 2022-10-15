@@ -3,6 +3,7 @@ package tasks
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -24,6 +25,8 @@ func RunTask(c *cli.Context) {
 
 	cluster := c.String("cluster")
 	container := c.String("container")
+	cpu := c.Int64("cpu")
+	memory := c.Int64("memory")
 
 	latestDefinition := getLatestTaskDefinition(c, ecsSvc)
 	commands := c.Args().Slice()
@@ -41,8 +44,12 @@ func RunTask(c *cli.Context) {
 				{
 					Name:    aws.String(container),
 					Command: aws.StringSlice(commands),
+					Cpu:     aws.Int64(cpu),
+					Memory:  aws.Int64(memory),
 				},
 			},
+			Cpu:    aws.String(strconv.FormatInt(cpu, 10)),
+			Memory: aws.String(strconv.FormatInt(memory, 10)),
 		},
 		TaskDefinition: latestDefinition,
 	})
