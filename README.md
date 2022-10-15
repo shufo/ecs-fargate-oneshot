@@ -144,13 +144,13 @@ $ ecs-fargate-oneshot --cluster cluster-name --service service-name run --task-d
 
 ### `run` sub command
 
-|                          option |                  description |                   default | required |
-| ------------------------------: | ---------------------------: | ------------------------: | -------- |
-|       `--task-definition`, `-t` |         Task definition name |                      `""` | yes      |
-|             `--container`, `-n` |               Container name |                      `""` | yes      |
-|                   `--cpu`, `-C` |                 Assigned CPU | Task definition's default | no       |
-|                `--memory`, `-m` |              Assigned Memory | Task definition's default | no       |
-| `--show-cloudwatch-logs,`, `-l` | Show logs on cloudwatch logs |                   `false` | no       |
+|                          option | description                                                                                                          | default                   | required |
+| ------------------------------: | :------------------------------------------------------------------------------------------------------------------- | :------------------------ | -------- |
+|       `--task-definition`, `-t` | Task definition name                                                                                                 | `""`                      | yes      |
+|             `--container`, `-n` | Container name                                                                                                       | `""`                      | yes      |
+|                   `--cpu`, `-C` | The number of cpu units reserved for the container, instead of the default value from the task definition            | Task definition's default | no       |
+|                `--memory`, `-m` | The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition | Task definition's default | no       |
+| `--show-cloudwatch-logs,`, `-l` | Show logs on cloudwatch logs                                                                                         | `false`                   | no       |
 
 ### `logs` sub command
 
