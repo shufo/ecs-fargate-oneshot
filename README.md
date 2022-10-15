@@ -193,7 +193,9 @@ $ go test -v ./...
 ## Development
 
 ```bash
-$ go run main.go <option> <args>
+$ GO111MODULE=off go get github.com/oxequa/realize
+$ realize start
+$ ./app <option> <args>
 ```
 
 ## LICENSE
