@@ -64,6 +64,8 @@ $ ecs-fargate-oneshot -v \
     run --task-definition app \
     --container app \
     --show-cloudwatch-logs \
+    --cpu 256 \
+    --memory 512 \
     echo "foo bar"
 # output =>
 INFO[0001] executing tasks...
