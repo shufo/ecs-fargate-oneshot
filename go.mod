@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go v1.44.133
 	github.com/briandowns/spinner v1.19.0
 	github.com/sirupsen/logrus v1.9.0
-	github.com/urfave/cli/v2 v2.19.2
+	github.com/urfave/cli/v2 v2.24.3
 )
 
 require (
