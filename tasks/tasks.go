@@ -24,56 +24,18 @@ func RunTask(c *cli.Context) {
 	ecsSvc := ecs.New(sess)
 
 	cluster := c.String("cluster")
-	container := c.String("container")
-	cpu := c.Int64("cpu")
-	memory := c.Int64("memory")
-
 	latestDefinition := getLatestTaskDefinition(c, ecsSvc)
-	commands := c.Args().Slice()
 	service := getService(c, ecsSvc)
 
 	taskDefinition := describeTaskDefinition(c, ecsSvc, *latestDefinition)
 
-	containerOverrides := []*ecs.ContainerOverride{
-		{
-			Name:    aws.String(container),
-			Command: aws.StringSlice(commands),
-		},
-	}
-
-	if cpu != 0 && memory != 0 {
-		containerOverrides[0].Cpu = aws.Int64(cpu)
-		containerOverrides[0].Memory = aws.Int64(memory)
-
-		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
-			containerDefinition := taskDefinition.ContainerDefinitions[i]
-			if *containerDefinition.Name != container {
-				taskDefinition.ContainerDefinitions[i].Cpu = aws.Int64(0)
-				taskDefinition.ContainerDefinitions[i].Memory = aws.Int64(0)
-			}
-
-		}
-
-		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
-			containerDefinition := taskDefinition.ContainerDefinitions[i]
-			if *containerDefinition.Name != container {
-				containerOverrides = append(containerOverrides, &ecs.ContainerOverride{
-					Name:   containerDefinition.Name,
-					Cpu:    containerDefinition.Cpu,
-					Memory: containerDefinition.Memory,
-				})
-			}
-		}
-	}
-
-	overrides := &ecs.TaskOverride{
-		ContainerOverrides: containerOverrides,
-	}
-
-	if cpu != 0 && memory != 0 {
-		overrides.Cpu = aws.String(strconv.FormatInt(cpu, 10))
-		overrides.Memory = aws.String(strconv.FormatInt(memory, 10))
-	}
+	overrides := GetTaskOverride(&GetTaskOverrideInput{
+		container:      c.String("container"),
+		commands:       c.Args().Slice(),
+		cpu:            c.Int64("cpu"),
+		memory:         c.Int64("memory"),
+		taskDefinition: taskDefinition,
+	})
 
 	log.Debugln("Task Overrides: ", overrides)
 
@@ -177,4 +139,63 @@ func describeTaskDefinition(c *cli.Context, svc *ecs.ECS, taskDefinition string)
 	}
 
 	return res.TaskDefinition
+}
+
+type GetTaskOverrideInput struct {
+	container      string
+	commands       []string
+	cpu            int64
+	memory         int64
+	taskDefinition *ecs.TaskDefinition
+}
+
+func GetTaskOverride(input *GetTaskOverrideInput) *ecs.TaskOverride {
+	container := input.container
+	commands := input.commands
+	cpu := input.cpu
+	memory := input.memory
+	taskDefinition := input.taskDefinition
+
+	containerOverrides := []*ecs.ContainerOverride{
+		{
+			Name:    aws.String(container),
+			Command: aws.StringSlice(commands),
+		},
+	}
+
+	if cpu != 0 && memory != 0 {
+		containerOverrides[0].Cpu = aws.Int64(cpu)
+		containerOverrides[0].Memory = aws.Int64(memory)
+
+		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
+			containerDefinition := taskDefinition.ContainerDefinitions[i]
+			if *containerDefinition.Name != container {
+				taskDefinition.ContainerDefinitions[i].Cpu = aws.Int64(0)
+				taskDefinition.ContainerDefinitions[i].Memory = aws.Int64(0)
+			}
+
+		}
+
+		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
+			containerDefinition := taskDefinition.ContainerDefinitions[i]
+			if *containerDefinition.Name != container {
+				containerOverrides = append(containerOverrides, &ecs.ContainerOverride{
+					Name:   containerDefinition.Name,
+					Cpu:    containerDefinition.Cpu,
+					Memory: containerDefinition.Memory,
+				})
+			}
+		}
+	}
+
+	overrides := &ecs.TaskOverride{
+		ContainerOverrides: containerOverrides,
+	}
+
+	if cpu != 0 && memory != 0 {
+		overrides.Cpu = aws.String(strconv.FormatInt(cpu, 10))
+		overrides.Memory = aws.String(strconv.FormatInt(memory, 10))
+	}
+
+	return overrides
 }
