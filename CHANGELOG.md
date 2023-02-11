@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.1](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.2.0...v0.2.1) (2023-02-11)
+
+
+### Bug Fixes
+
+* 🐛 error on cpu and memory combination ([9897b84](https://github.com/shufo/ecs-fargate-oneshot/commit/9897b847b9e174f3ce7611c2363324085d647b63))
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.133 ([0578145](https://github.com/shufo/ecs-fargate-oneshot/commit/05781456b9d02fb71378189db9c3f54258cb98c7))
+* **deps:** update module github.com/aws/aws-sdk-go to v1.44.199 ([16f883d](https://github.com/shufo/ecs-fargate-oneshot/commit/16f883d5830a5b3565decc1f468b2ee065ba85aa))
+* **deps:** update module github.com/briandowns/spinner to v1.21.0 ([996f1d5](https://github.com/shufo/ecs-fargate-oneshot/commit/996f1d5fdac5cb47ffa08d345436299d0fcc3524))
+* **deps:** update module github.com/urfave/cli/v2 to v2.24.3 ([7e7f42a](https://github.com/shufo/ecs-fargate-oneshot/commit/7e7f42ae8bfdb78079aef4d43437d2df95adca2f))
+
+
+### Miscellaneous
+
+* **deps:** update goreleaser/goreleaser-action action to v4 ([b433d59](https://github.com/shufo/ecs-fargate-oneshot/commit/b433d5987439609a95cae44278338adff0f80905))
+
 ## [0.2.0](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.1.14...v0.2.0) (2022-10-15)
 
 
