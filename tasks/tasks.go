@@ -94,7 +94,7 @@ func RunTask(c *cli.Context) {
 
 	taskArn := *results.Tasks[0].TaskArn
 
-	log.Info("executing tasks...\nPlease wait for tasks to finished")
+	log.Info("executing tasks...\nPlease wait for tasks to be finished")
 
 	s := spinner.New(spinner.CharSets[9], 100*time.Millisecond)
 
