@@ -73,12 +73,12 @@ func run(args []string) error {
 						Aliases:  []string{"t"},
 						Required: true,
 					},
-					&cli.Int64Flag{
+					&cli.Uint64Flag{
 						Name:     "cpu",
 						Aliases:  []string{"C"},
 						Required: false,
 					},
-					&cli.Int64Flag{
+					&cli.Uint64Flag{
 						Name:     "memory",
 						Aliases:  []string{"m"},
 						Required: false,
@@ -98,6 +98,16 @@ func run(args []string) error {
 					if c.NArg() == 0 {
 						log.Fatalln("ecs-fargate-oneshot: require commands to execute")
 						log.Fatalln("e.g. ecs-fargate-oneshot run [options] echo 1")
+						os.Exit(1)
+					}
+
+					if (c.Uint64("cpu") > 0 || c.Uint64("memory") > 0) && (c.Uint64("cpu") == 0 || c.Uint64("memory") == 0) {
+						log.Errorln("Both --cpu and --memory must be specified. Only one of them was specified.")
+						os.Exit(1)
+					}
+
+					if !tasks.ValidateCombinationOfCpuAndMemory(c.Uint64("cpu"), c.Uint64("memory")) {
+						log.Errorln("The combination of cpu and memory value is invalid.\nCheck https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-cpu-memory-error.html for available combination")
 						os.Exit(1)
 					}
 

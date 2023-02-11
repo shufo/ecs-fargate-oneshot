@@ -32,6 +32,51 @@ func RunTask(c *cli.Context) {
 	commands := c.Args().Slice()
 	service := getService(c, ecsSvc)
 
+	taskDefinition := describeTaskDefinition(c, ecsSvc, *latestDefinition)
+
+	containerOverrides := []*ecs.ContainerOverride{
+		{
+			Name:    aws.String(container),
+			Command: aws.StringSlice(commands),
+		},
+	}
+
+	if cpu != 0 && memory != 0 {
+		containerOverrides[0].Cpu = aws.Int64(cpu)
+		containerOverrides[0].Memory = aws.Int64(memory)
+
+		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
+			containerDefinition := taskDefinition.ContainerDefinitions[i]
+			if *containerDefinition.Name != container {
+				taskDefinition.ContainerDefinitions[i].Cpu = aws.Int64(0)
+				taskDefinition.ContainerDefinitions[i].Memory = aws.Int64(0)
+			}
+
+		}
+
+		for i := 0; i < len(taskDefinition.ContainerDefinitions); i++ {
+			containerDefinition := taskDefinition.ContainerDefinitions[i]
+			if *containerDefinition.Name != container {
+				containerOverrides = append(containerOverrides, &ecs.ContainerOverride{
+					Name:   containerDefinition.Name,
+					Cpu:    containerDefinition.Cpu,
+					Memory: containerDefinition.Memory,
+				})
+			}
+		}
+	}
+
+	overrides := &ecs.TaskOverride{
+		ContainerOverrides: containerOverrides,
+	}
+
+	if cpu != 0 && memory != 0 {
+		overrides.Cpu = aws.String(strconv.FormatInt(cpu, 10))
+		overrides.Memory = aws.String(strconv.FormatInt(memory, 10))
+	}
+
+	log.Debugln("Task Overrides: ", overrides)
+
 	results, err := ecsSvc.RunTask(&ecs.RunTaskInput{
 		Count:      aws.Int64(1),
 		Cluster:    aws.String(cluster),
@@ -39,18 +84,7 @@ func RunTask(c *cli.Context) {
 		NetworkConfiguration: &ecs.NetworkConfiguration{
 			AwsvpcConfiguration: service.NetworkConfiguration.AwsvpcConfiguration,
 		},
-		Overrides: &ecs.TaskOverride{
-			ContainerOverrides: []*ecs.ContainerOverride{
-				{
-					Name:    aws.String(container),
-					Command: aws.StringSlice(commands),
-					Cpu:     aws.Int64(cpu),
-					Memory:  aws.Int64(memory),
-				},
-			},
-			Cpu:    aws.String(strconv.FormatInt(cpu, 10)),
-			Memory: aws.String(strconv.FormatInt(memory, 10)),
-		},
+		Overrides:      overrides,
 		TaskDefinition: latestDefinition,
 	})
 
@@ -131,4 +165,16 @@ func getService(c *cli.Context, svc *ecs.ECS) *ecs.Service {
 	}
 
 	return res.Services[0]
+}
+
+func describeTaskDefinition(c *cli.Context, svc *ecs.ECS, taskDefinition string) *ecs.TaskDefinition {
+	res, err := svc.DescribeTaskDefinition(&ecs.DescribeTaskDefinitionInput{
+		TaskDefinition: &taskDefinition,
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return res.TaskDefinition
 }
