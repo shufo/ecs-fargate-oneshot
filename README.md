@@ -6,20 +6,20 @@ Executes oneshot task on ECS (fargate)
 
 ## Installation
 
-Using go get
+Download binary by installation script
+
+```bash
+# if you would like install to /usr/local/bin
+$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sudo sh -s - -b /usr/local/bin
+
+# this will install $GOPATH/.bin/ecs-fargate-oneshot or ./bin/ecs-fargate-oneshot
+$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sh -s
+```
+
+or using go get
 
 ```bash
 $ go get -u github.com/shufo/ecs-fargate-oneshot
-```
-
-or download binary by installation script
-
-```bash
-# this will install $GOPATH/.bin/ecs-fargate-oneshot or ./bin/ecs-fargate-oneshot
-$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sh -s
-
-# if you would like change installation path to /usr/local/bin
-$ curl -sSfL https://raw.githubusercontent.com/shufo/ecs-fargate-oneshot/master/install.sh  | sudo sh -s - -b /usr/local/bin
 ```
 
 ### resource permissions
