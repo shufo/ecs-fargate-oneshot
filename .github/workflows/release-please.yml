@@ -26,7 +26,7 @@ jobs:
           go-version: 1.17.x
       - name: Run GoReleaser
         if: ${{ steps.release.outputs.release_created }}
-        uses: goreleaser/goreleaser-action@v4
+        uses: goreleaser/goreleaser-action@v5
         with:
           version: latest
           args: release --rm-dist
