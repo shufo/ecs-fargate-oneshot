@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.2](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.2.1...v0.2.2) (2023-12-06)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/aws/aws-sdk-go to v1.47.3 ([af049ec](https://github.com/shufo/ecs-fargate-oneshot/commit/af049ecac9cd84cf2181428a977c1a532c9e7f62))
+* **deps:** update module github.com/sirupsen/logrus to v1.9.3 ([0bcba37](https://github.com/shufo/ecs-fargate-oneshot/commit/0bcba37b74c45ff0bb3cdbfc3230f917131d86ab))
+
+
+### Miscellaneous
+
+* **deps:** update actions/checkout action to v4 ([81172df](https://github.com/shufo/ecs-fargate-oneshot/commit/81172df273bd0212175fc5b19da658c3bfc7dd05))
+* **deps:** update actions/setup-go action to v4 ([f5f59aa](https://github.com/shufo/ecs-fargate-oneshot/commit/f5f59aa94eea6b11f9b412dc4b38091e7a66f583))
+* **deps:** update actions/setup-go action to v5 ([e018a62](https://github.com/shufo/ecs-fargate-oneshot/commit/e018a620949d7301e4a76207102405a68a410e9f))
+* **deps:** update goreleaser/goreleaser-action action to v5 ([ba351ec](https://github.com/shufo/ecs-fargate-oneshot/commit/ba351ecfa480d7922187b67b1bdadb503625b25d))
+
 ## [0.2.1](https://github.com/shufo/ecs-fargate-oneshot/compare/v0.2.0...v0.2.1) (2023-02-11)
 
 
